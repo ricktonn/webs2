@@ -34,3 +34,7 @@ Route::get('/starter', function () {
 Route::get('/liquid', function () {
     return view('liquid');
 });
+
+Route::get('/admin', function () {
+    return view('admin');
+});
