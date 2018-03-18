@@ -20,3 +20,11 @@ Route::get('register', function () {
 });
 
 Route::post('/insertRegister', 'Controller@insertRegister');
+
+Route::get('/starter', function () {
+    return view('starter');
+});
+
+Route::get('/liquid', function () {
+    return view('liquid');
+});

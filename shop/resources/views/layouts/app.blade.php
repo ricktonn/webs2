@@ -19,7 +19,13 @@
         {{--</div>--}}
     {{--</div>--}}
 {{--</section>--}}
+@include('includes.nav')
+
+<div class="content-wrapper">
+    <div class="container">
 @yield('content')
+    </div>
+</div>
 
 <section class="section-footer">
     <footer>
@@ -35,6 +41,6 @@
         </div>
     </footer>
 </section>
-
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
