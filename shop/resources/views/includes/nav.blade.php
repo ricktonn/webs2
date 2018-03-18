@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
     <a class="navbar-brand" href="/">De dampende boykes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,5 +21,6 @@
                 <a class="nav-link" href="/register">register</a>
             </li>
         </ul>
+    </div>
     </div>
 </nav>
