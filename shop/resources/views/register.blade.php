@@ -1,16 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
+    <h2>Registratie</h2>
     <form action="/insertRegister" method="post">
-        {{ csrf_field() }}
-        <p>Username:</p>
-        <input type="text" name="username"/>
-        <p>Wachtwoord:</p>
-        <input type="text" name="password"/>
-        <input type="submit" name="submit" value="add"/>
+        <div class="form-group">
+            {{ csrf_field() }}
+            <p>Username:</p>
+            <input type="text" class="form-control" name="username" placeholder="Username"/>
+            <p>Wachtwoord:</p>
+            <input type="text" class="form-control" name="password" placeholder="Password"/>
+        </div>
+        <input type="submit" class="form-control btn-dark" name="submit" value="add"/>
     </form>
-</body>
-</html>
+    @endsection()
