@@ -21,6 +21,14 @@ Route::get('register', function () {
 
 Route::post('/insertRegister', 'Controller@insertRegister');
 
-Route::get('/categorie', function () {
-    return view('categorie');
+Route::get('/starter', function () {
+    return view('starter');
+});
+
+Route::get('/liquid', function () {
+    return view('liquid');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
 });

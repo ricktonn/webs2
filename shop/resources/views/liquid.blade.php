@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>categories</h1>
+
+
+    <h1>Liquid</h1>
 
 @endsection()

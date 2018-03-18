@@ -9,8 +9,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/categorie">Categories</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="/starter">Starter sets</a>
+                    <a class="dropdown-item" href="/liquid">E-liquids</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav .ml-auto">
