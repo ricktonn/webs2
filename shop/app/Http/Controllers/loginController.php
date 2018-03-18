@@ -9,20 +9,22 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Controller extends BaseController
+class loginController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    function insertRegister(Request $req)
+    public function login(Request $req)
     {
         $username = $req->input('username');
         $password = $req->input('password');
 
-        $data = array('username'=>$username,"password"=>$password,'user_type'=>1);
-
-        DB::table('login')->insert($data);
-
-        echo "Success";
-        return redirect()->to('');
+        $checkLogin = DB::table('login')->where(['username'=>$username,'password'=>$password])->get();
+        if(count($checkLogin) >0)
+        {
+            echo "Login SUCCESS";
+        }
+        else
+            {
+            echo "LOGIN FAIL";
+        }
     }
+
 }
