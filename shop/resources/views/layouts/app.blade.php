@@ -22,7 +22,9 @@
 @include('includes.nav')
 
 <div class="content-wrapper">
+    <div class="container">
 @yield('content')
+    </div>
 </div>
 
 <section class="section-footer">
