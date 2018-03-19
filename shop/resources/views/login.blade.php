@@ -5,7 +5,7 @@
         <div class="form-group">
             {{ csrf_field() }}
             <p>Username:</p>
-            <input type="text" class="form-control" name="username" placeholder="Username"/>
+            <input type="text" class="form-control" name="username"  placeholder="Username"/>
             <p>Wachtwoord:</p>
             <input type="text" class="form-control" name="password" placeholder="Password"/>
         </div>

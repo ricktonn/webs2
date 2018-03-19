@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <h2>Registratie</h2>
+    @if(count($errors) > 0)
+            @foreach($errors->all() as $error)
+            <div class="row">
+                 {{$error}}
+            </div>
+            @endforeach
+    @endif
     <form action="/insertRegister" method="post">
         <div class="form-group">
             {{ csrf_field() }}

@@ -15,6 +15,21 @@ class Controller extends BaseController
 
     function insertRegister(Request $req)
     {
+        $this->validate($req, [
+            'username'          => [
+                'required',
+                'unique:login',
+                'between:4,12',
+                'regex:(^([a-zA-z0-9]+))'
+            ],
+        'password'          => [
+        'required',
+        'unique:login',
+        'between:6,99',
+        'regex:(^([a-zA-z0-9!@#$%^&*,.]+))'
+    ]
+        ]);
+
         $username = $req->input('username');
         $password = $req->input('password');
 
