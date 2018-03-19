@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('home', function () {
     return view('home');
 });
 
@@ -19,13 +19,19 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::post('/insertRegister', 'Controller@insertRegister');
-
-Route::get('login', function () {
+Route::get('loginpage', function () {
     return view('login');
 });
 
-Route::post('/loginme','loginController@login');
+Route::post('login',[
+    'uses' => 'UserController@login',
+    'as' => 'login'
+]);
+
+Route::post('/register',[
+    'uses' => 'UserController@insertRegister',
+    'as' => 'register'
+]);
 
 Route::get('/starter', function () {
     return view('starter');
@@ -38,3 +44,5 @@ Route::get('/liquid', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
+
+Route::get('logout', 'UserController@logout');
