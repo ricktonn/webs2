@@ -46,3 +46,8 @@ Route::get('/admin', function () {
 });
 
 Route::get('logout', 'UserController@logout');
+
+Route::get('category/{category}', [
+    "uses" => 'CategoryController@show',
+    "as" => 'category'
+]);
