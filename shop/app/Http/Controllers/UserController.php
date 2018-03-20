@@ -64,7 +64,7 @@ class userController extends BaseController
             echo "LOGIN FAIL";
         } */
         if(Auth::attempt(['username' => $req['username'], 'password' => $req['password']])){
-            return redirect('home');
+            return redirect('/');
         }
         return redirect()->back();
     }
@@ -73,6 +73,6 @@ class userController extends BaseController
         //logout user
         auth()->logout();
         // redirect to homepage
-        return redirect('home');
+        return redirect('/');
     }
 }

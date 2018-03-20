@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('home', function () {
+Route::get('/', function () {
     return view('home');
 });
 
@@ -34,7 +34,7 @@ Route::post('/register',[
 ]);
 
 Route::get('/starter', function () {
-    return view('starter');
+    return view('starter', ['name' => 'Starter sets']);
 });
 
 Route::get('/liquid', function () {
