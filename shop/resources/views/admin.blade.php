@@ -81,10 +81,11 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Category</th>
                         <th>Image</th>
                         <th>Price</th>
                         <th>SEO</th>
-                        <th colspan="2">Action</th>
+                        <th >Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -93,6 +94,7 @@
                             <td>{{$product['id']}}</td>
                             <td>{{$product['name']}}</td>
                             <td>{{$product['desc']}}</td>
+                            <td>{{$product['category']}}</td>
                             <td>{{$product['img']}}</td>
                             <td>{{$product['price']}}</td>
                             <td>{{$product['seo']}}</td>
