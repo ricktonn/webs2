@@ -19,7 +19,7 @@
 
         </ul>
         <ul class="navbar-nav .ml-auto">
-            <li class="nav-item"><a href="/admin" class="nav-link">Admin panel</a></li>
+            <li class="nav-item"><a href="{{ url('/admin') }}" class="nav-link">Admin panel</a></li>
             @if(Auth::user())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('logout') }}">Logout</a>
@@ -29,7 +29,7 @@
                     <a class="nav-link" href="{{ url('loginpage') }}">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">register</a>
+                    <a class="nav-link" href="{{ url('register') }}">register</a>
                 </li>
             @endif
         </ul>
