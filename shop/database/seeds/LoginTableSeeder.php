@@ -15,11 +15,11 @@ class LoginTableSeeder extends seeder
     public function run(){
         DB::table('login')->insert([
             'id' => '15',
-            'desc' => str_random(10),
-            'price' => '200',
-            'category' => 'startersets',
-            'img' => str_random(10),
-            'seo' => bcrypt('secret'),
+            'username' => 'admin2',
+            'password' => '$2y$10$Ql6CvHBoYYR.R/PjIkhW..C7YraDKR9aPYvF9IXHX1sSQgoQpuShG',
+            'user_type' => '0',
+            'updated_at' => '2018-03-19',
+            'created_at' => '2018-03-19',
         ]);
     }
 }
