@@ -20,9 +20,8 @@ class CreateLoginTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->integer('user_type');
-            $table->string('category');
             $table->timestamps();
-            $table->text('remember_token');
+            $table->string('remember_token')->nullable();
         });
     }
     /**
