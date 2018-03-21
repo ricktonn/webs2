@@ -17,7 +17,7 @@ class ProductTableSeeder extends Seeder
             'price' => '200',
             'category' => 'startersets',
             'img' => str_random(10),
-            'seo' => bcrypt('secret'),
+            'seo' => str_random(10),
         ]);
         DB::table('products')->insert([
             'name' => str_random(10),
@@ -25,7 +25,7 @@ class ProductTableSeeder extends Seeder
             'price' => '200',
             'category' => 'startersets',
             'img' => str_random(10),
-            'seo' => bcrypt('secret'),
+            'seo' => str_random(10),
         ]);
         DB::table('products')->insert([
             'name' => str_random(10),
@@ -33,7 +33,7 @@ class ProductTableSeeder extends Seeder
             'price' => '200',
             'category' => 'startersets',
             'img' => str_random(10),
-            'seo' => bcrypt('secret'),
+            'seo' => str_random(10),
         ]);
     }
 }
