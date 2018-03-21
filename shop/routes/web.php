@@ -41,13 +41,13 @@ Route::get('/liquid', function () {
     return view('liquid');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', 'ProductController@index');
 
 Route::get('logout', 'UserController@logout');
 
-Route::get('category/{category}', [
+Route::get('category/{category?}', [
     "uses" => 'CategoryController@show',
     "as" => 'category'
 ]);
+
+Route::resource('products','ProductController');
