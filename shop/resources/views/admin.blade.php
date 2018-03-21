@@ -74,13 +74,7 @@
                     </div>
                 </form>
                 <hr style="margin: 3rem 0; background-color: transparent;">
-
-                {{--section overzicht van alle producten--}}
-                @if (\Session::has('success'))
-                    <div class="alert alert-success">
-                        <p>{{ \Session::get('success') }}</p>
-                    </div><br />
-                @endif
+                <h1>All products</h1>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -102,7 +96,7 @@
                             <td>{{$product['img']}}</td>
                             <td>{{$product['price']}}</td>
                             <td>{{$product['seo']}}</td>
-                            <td><a href="{{action('ProductController@edit', $product['id'])}}" class="btn btn-warning">Edit</a></td>
+                            {{--<td><a href="{{action('ProductController@edit', $product['id'])}}" class="btn btn-warning">Edit</a></td>--}}
                             <td>
                                 <form action="{{action('ProductController@destroy', $product['id'])}}" method="post">
                                     {{csrf_field()}}
