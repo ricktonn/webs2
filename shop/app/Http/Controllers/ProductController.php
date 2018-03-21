@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index(){
+        if(Auth::user()->user_type != "0")
+        {
+            return redirect('/');
+        }
         $products = Product::all()->toArray();
         return view('/admin', compact('products'));
     }

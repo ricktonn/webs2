@@ -19,14 +19,17 @@
 
         </ul>
         <ul class="navbar-nav .ml-auto">
+            @if(Auth::check() && Auth::user()->user_type == "0")
             <li class="nav-item"><a href="{{ url('/admin') }}" class="nav-link">Admin panel</a></li>
+
+            @endif
             @if(Auth::user())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('logout') }}">Logout</a>
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('loginpage') }}">login</a>
+                    <a class="nav-link" href="{{ url('login') }}">login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('register') }}">register</a>

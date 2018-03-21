@@ -19,13 +19,13 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::get('loginpage', function () {
-    return view('login');
+Route::get('login', function () {
+    return view('login', ['as' => 'login']);
 });
 
-Route::post('login',[
+Route::post('loginfunction',[
     'uses' => 'UserController@login',
-    'as' => 'login'
+    'as' => 'loginfunction'
 ]);
 
 Route::post('/register',[
@@ -41,7 +41,13 @@ Route::get('/liquid', function () {
     return view('liquid');
 });
 
-Route::get('/admin', 'ProductController@index');
+//Route::get('/admin', 'ProductController@index');
+
+Route::get('/admin', [
+    "uses" => 'ProductController@index',
+    "as" => '/admin',
+    'middleware' => 'auth'
+]);
 
 Route::get('logout', 'UserController@logout');
 

@@ -8,7 +8,7 @@
             </div>
         @endforeach
     @endif
-    <form action="{{ route('login') }}" method="post">
+    <form action="{{ route('loginfunction') }}" method="post">
         <div class="form-group">
             {{ csrf_field() }}
             <p>Username:</p>
