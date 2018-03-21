@@ -32,4 +32,11 @@ class ProductController extends Controller
 
         return back()->with('success', 'Product has been added');;
     }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('products')->with('success','Product has been  deleted');
+    }
 }
