@@ -12,27 +12,35 @@ class ProductTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => str_random(10),
-            'desc' => str_random(10),
+            'name' => 'vape1',
+            'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
             'category' => 'startersets',
-            'img' => str_random(10),
+            'img' => 'vape.jpg',
             'seo' => str_random(10),
         ]);
         DB::table('products')->insert([
-            'name' => str_random(10),
-            'desc' => str_random(10),
+            'name' => 'vape2',
+            'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
             'category' => 'startersets',
-            'img' => str_random(10),
+            'img' => 'vape1.jpg',
             'seo' => str_random(10),
         ]);
         DB::table('products')->insert([
-            'name' => str_random(10),
-            'desc' => str_random(10),
+            'name' => 'vape3',
+            'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
             'category' => 'startersets',
-            'img' => str_random(10),
+            'img' => 'vape2.png',
+            'seo' => str_random(10),
+        ]);
+        DB::table('products')->insert([
+            'name' => 'vape4',
+            'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
+            'price' => '200',
+            'category' => 'startersets',
+            'img' => 'vape3.jpg',
             'seo' => str_random(10),
         ]);
     }

@@ -8,13 +8,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use App\product;
 
 class CategoryController
 {
     public function show($category)
     {
-        $data['category'] = $category;
 
-        return view('category', $data);
+
+        $data['category'] = $category;
+        $products = Product::where('category','=',$data)->get();
+        return view('/category', $data)->with(compact('products'));
     }
 }

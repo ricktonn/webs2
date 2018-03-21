@@ -39,4 +39,9 @@ class ProductController extends Controller
         $product->delete();
         return redirect('products')->with('success','Product has been  deleted');
     }
+
+    public function getProducts(){
+        $products = Product::all()->toArray();
+        return view('/category', compact('products'));
+    }
 }
