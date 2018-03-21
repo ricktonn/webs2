@@ -14,6 +14,15 @@ class userController extends BaseController
 {
     use ValidatesRequests;
 
+    function page()
+    {
+        if (Auth::check())
+        {
+            return redirect('/');
+        }
+        return view('/login');
+    }
+
     function insertRegister(Request $req)
     {
         $this->validate($req, [
@@ -51,22 +60,18 @@ class userController extends BaseController
 
     public function login(Request $req)
     {
-   /*     $username = $req->input('username');
-        $password = $req->input('password');
-
-        $checkLogin = DB::table('login')->where(['username'=>$username,'password'=>$password])->get();
-        if(count($checkLogin) >0)
-        {
-            echo "Login SUCCESS";
-        }
-        else
-            {
-            echo "LOGIN FAIL";
-        } */
+        $this->validate($req, [
+            'username'          => [
+                'required'
+            ],
+            'password'          => [
+                'required'
+            ]
+        ]);
         if(Auth::attempt(['username' => $req['username'], 'password' => $req['password']])){
             return redirect('/');
         }
-        return redirect()->back();
+        return back()->with('fail', 'Login Failed');;
     }
 
     public function logout () {

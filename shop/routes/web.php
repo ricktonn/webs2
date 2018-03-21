@@ -19,9 +19,10 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::get('login', function () {
-    return view('login', ['as' => 'login']);
-});
+Route::get('login',[
+    'uses' => 'UserController@page',
+    'as' => 'login'
+]);
 
 Route::post('loginfunction',[
     'uses' => 'UserController@login',
