@@ -46,11 +46,6 @@ class userController extends BaseController
         $user->username = $username;
         $user->password = $password;
         $user->user_type = 1;
-
-    //    $data = array('username'=>$username,"password"=>$password,'user_type'=>1);
-
-    //    DB::table('login')->insert($data);
-
         $user->save();
 
         Auth::login($user);

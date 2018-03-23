@@ -58,3 +58,13 @@ Route::get('category/{category?}', [
 ]);
 
 Route::resource('products','ProductController');
+
+
+Route::get('product/{product?}', function () {
+    return view('product', ['name' => 'product']);
+});
+
+Route::get('product/{product?}', [
+    "uses" => 'ProductController@show',
+    "as" => 'product'
+]);

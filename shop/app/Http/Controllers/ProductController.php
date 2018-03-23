@@ -38,6 +38,11 @@ class ProductController extends Controller
         return back()->with('success', 'Product has been added');
     }
 
+    public function show(product $product)
+    {
+        return view('product')->with('product', $product);
+    }
+
     public function destroy($id)
     {
         $product = Product::find($id);

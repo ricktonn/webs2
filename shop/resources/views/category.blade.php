@@ -16,7 +16,7 @@
                         <h5 class="card-title">{{$product['title']}}</h5>
                         <p class="card-text">{{$product['desc']}}</p>
                         <span class="card-price-text">${{$product['price']}},00</span>
-                        <a href="#" class="btn btn-primary pull-right">Go somewhere</a>
+                        <a href="{{ url('product', $product) }}" class="btn btn-primary pull-right">Go somewhere</a>
                     </div>
                 </div>
             </div>
