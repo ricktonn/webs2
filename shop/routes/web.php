@@ -64,7 +64,17 @@ Route::get('product/{product?}', function () {
     return view('product', ['name' => 'product']);
 });
 
-Route::get('product/{product?}', [
+Route::get('/product/{product?}', [
     "uses" => 'ProductController@show',
     "as" => 'product'
+]);
+
+Route::get('addToCart/{id}', [
+    "uses" => 'ProductController@addToCart',
+    "as" => 'addToCart'
+]);
+
+Route::get('cart', [
+    "uses" => 'ProductController@getCart',
+    "as" => 'cart'
 ]);

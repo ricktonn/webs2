@@ -18,14 +18,17 @@
             </li>
 
         </ul>
-        <ul class="navbar-nav .ml-auto">
+        <ul class="navbar-nav navbar-right">
             @if(Auth::check() && Auth::user()->user_type == "0")
             <li class="nav-item"><a href="{{ url('/admin') }}" class="nav-link">Admin panel</a></li>
 
             @endif
             @if(Auth::user())
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="{{ url('cart') }}">
+                            <i aria-hidden="true"></i>Cart
+                        <span class="badge" >{{ Session::has('cart') ? Session::get('cart')->amount : ''}}</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('logout') }}">Logout</a>

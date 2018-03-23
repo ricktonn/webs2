@@ -2,7 +2,12 @@
 @section('content')
     @if (\Session::has('fail'))
         <div class="alert alert-danger">
-            <p>{{ \Session::get('fail') }}</p>
+            <strong>Important! </strong>{{ \Session::get('fail') }}
+        </div><br />
+    @endif
+    @if (\Session::has('warning'))
+        <div class="alert alert-warning">
+            <strong>Warning! </strong>{{ \Session::get('warning') }}
         </div><br />
     @endif
     <h2>Login</h2>

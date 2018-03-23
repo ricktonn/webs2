@@ -10068,3 +10068,10 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.badge {
+  height: 15px;
+  width: 15px;
+  background-color: #e2e2e2;
+  border-radius: 50%;
+  color: #636363;
+}
