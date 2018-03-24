@@ -78,3 +78,8 @@ Route::get('cart', [
     "uses" => 'ProductController@getCart',
     "as" => 'cart'
 ]);
+
+Route::get('cartRemove/{id}', [
+    "uses" => 'ProductController@removeFromCart',
+    "as" => 'cartRemove'
+]);

@@ -14,7 +14,7 @@
                             <span class="label-success">{{$product['price']}}</span>
                             <div class="btn-group">
                                 <ul >
-                                    <li><a href="#">remove</a></li>
+                                    <li><a href="{{ route('cartRemove', ['id' => $product['item']['id']]) }}">remove</a></li>
                                 </ul>
                             </div>
                         </li>

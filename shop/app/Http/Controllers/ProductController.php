@@ -73,6 +73,27 @@ class ProductController extends Controller
         }
     }
 
+    public function removeFromCart(Request $request, $id)
+    {
+        if(Auth::check())
+        {
+            $product = Product::find($id);
+            $old = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($old);
+            $cart->remove($product, $product->id);
+            if($cart->amount <= 0)
+            {
+                $cart=null;
+            }
+
+            $request->session()->put('cart', $cart);
+            return redirect('/');
+        }
+        else {
+            return redirect('login')->with('warning','Please login before buying products :D');
+        }
+    }
+
     public function getCart(){
         if(!Session::has('cart')) {
             return view('cart');
