@@ -66,7 +66,7 @@ class ProductController extends Controller
             $cart->add($product, $product->id);
 
             $request->session()->put('cart', $cart);
-            return redirect('/');
+            return redirect('cart');
         }
         else {
             return redirect('login')->with('warning','Please login before buying products :D');
@@ -87,7 +87,7 @@ class ProductController extends Controller
             }
 
             $request->session()->put('cart', $cart);
-            return redirect('/');
+            return redirect('cart');
         }
         else {
             return redirect('login')->with('warning','Please login before buying products :D');
@@ -108,7 +108,7 @@ class ProductController extends Controller
             }
 
             $request->session()->put('cart', $cart);
-            return redirect('/');
+            return redirect('cart');
         }
         else {
             return redirect('login')->with('warning','Please login before buying products :D');

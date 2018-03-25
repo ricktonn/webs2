@@ -11,13 +11,14 @@
         @foreach($chunk as $product)
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{asset('/images/'.$product['img'])}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$product['title']}}</h5>
-                        <p class="card-text">{{$product['desc']}}</p>
-                        <span class="card-price-text">${{$product['price']}},00</span>
-                        <a href="{{ url('product', $product) }}" class="btn btn-primary pull-right">Go somewhere</a>
-                    </div>
+                    <a style="text-decoration:none; color: inherit;" href="{{ url('product', $product) }}">
+                        <img class="card-img-top" src="{{asset('/images/'.$product['img'])}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$product['title']}}</h5>
+                            <p class="card-text">{{$product['desc']}}</p>
+                            <span class="card-price-text">Price: ${{$product['price']}},00</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         @endforeach
