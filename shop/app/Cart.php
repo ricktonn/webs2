@@ -5,9 +5,9 @@ namespace App;
 
 class Cart
 {
-    public $items = null;
     public $amount = 0;
     public $priceTotal = 0;
+    public $items = null;
 
     public function __construct($old)
     {
@@ -39,5 +39,15 @@ class Cart
         $this->amount = $this->amount - $this->items[$id]['count'];
         $this->priceTotal = $this->priceTotal - $item->price;
         unset($this->items[$id]);
+    }
+
+    public function reduceByOne($item, $id){
+        $this->amount--;
+        $this->priceTotal = $this->priceTotal - $item->price;
+        $this->items[$id]['count']--;
+        if($this->items[$id]['count'] <= 0)
+        {
+            unset($this->items[$id]);
+        }
     }
 }
