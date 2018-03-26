@@ -10069,9 +10069,15 @@ a.text-dark:focus {
 }
 
 .badge {
-  height: 15px;
-  width: 15px;
+  height: 18px;
+  width: 18px;
   background-color: #e2e2e2;
   border-radius: 50%;
   color: #636363;
+  text-align: center;
+}
+
+.cart-img{
+  height: 50px;
+  width: 50px;
 }

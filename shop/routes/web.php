@@ -45,7 +45,7 @@ Route::get('/liquid', function () {
 //Route::get('/admin', 'ProductController@index');
 
 Route::get('/admin', [
-    "uses" => 'ProductController@index',
+    "uses" => 'UserController@admin',
     "as" => '/admin',
     'middleware' => 'auth'
 ]);
@@ -87,4 +87,14 @@ Route::get('cartRemove/{id}', [
 Route::get('cartReduce/{id}', [
     "uses" => 'ProductController@reduceFromCart',
     "as" => 'cartReduce'
+]);
+
+Route::get('adres', function () {
+    return view('adres');
+});
+
+
+Route::post('insertAdres', [
+    "uses" => 'OrderController@insertAdres',
+    "as" => 'insertAdres'
 ]);

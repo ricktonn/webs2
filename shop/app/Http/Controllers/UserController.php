@@ -14,6 +14,15 @@ class userController extends BaseController
 {
     use ValidatesRequests;
 
+    public function admin(){
+        if(Auth::user()->user_type != "0")
+        {
+            return redirect('/');
+        }
+        $products = Product::all()->toArray();
+        return view('/admin', compact('products'));
+    }
+
     function page()
     {
         if (Auth::check())

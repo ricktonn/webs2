@@ -10,14 +10,6 @@ use Session;
 
 class ProductController extends Controller
 {
-    public function index(){
-        if(Auth::user()->user_type != "0")
-        {
-            return redirect('/');
-        }
-        $products = Product::all()->toArray();
-        return view('/admin', compact('products'));
-    }
 
     public function create(){
         return view(products.create);
