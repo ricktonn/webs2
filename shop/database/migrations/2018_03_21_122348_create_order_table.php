@@ -17,12 +17,14 @@ class CreateOrderTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->increments('order_id');
-            $table->integer('adres_id');
-            $table->integer('product_id');
+            $table->integer('adres_id')->unsigned();;
+            $table->integer('product_id')->unsigned();;
             $table->integer('amount');
             $table->timestamps();
         });
-
+        Schema::table('order', function($table) {
+            $table->foreign('adres_id')->references('adres_id')->on('adres');
+        });
     }
     /**
      * Reverse the migrations.
