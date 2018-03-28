@@ -34,14 +34,6 @@ Route::post('/register',[
     'as' => 'register'
 ]);
 
-Route::get('/starter', function () {
-    return view('starter', ['name' => 'Starter sets']);
-});
-
-Route::get('/liquid', function () {
-    return view('liquid');
-});
-
 //Route::get('/admin', 'ProductController@index');
 
 Route::get('/admin', [
@@ -89,12 +81,24 @@ Route::get('cartReduce/{id}', [
     "as" => 'cartReduce'
 ]);
 
-Route::get('adres', function () {
-    return view('adres');
-});
+Route::get('adres', [
+    "uses" => 'OrderController@adres',
+    "as" => 'goAdres'
+]);
 
 
 Route::post('insertAdres', [
     "uses" => 'OrderController@insertAdres',
     "as" => 'insertAdres'
+]);
+
+Route::get('adres', [
+    "uses" => 'OrderController@adres',
+    "as" => 'goAdres'
+]);
+
+
+Route::get('succes', [
+    "uses" => 'OrderController@succes',
+    "as" => 'goSucces'
 ]);

@@ -35,7 +35,9 @@
                 <string>Total: ${{ $price }}</string>
             </div>
     </div>
-        <button type="button" onclick="window.location='{{ url("adres") }}'" class="btn btn-success">Go to payment</button>
+        <a href="{{ route("goAdres") }}">
+            <button type="button" class="btn btn-success">Go to payment</button>
+        </a>
     @else
         <div class="alert alert-warning">
             <strong>Warning! </strong>No items found!

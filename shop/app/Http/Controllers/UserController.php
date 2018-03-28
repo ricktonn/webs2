@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Hash;
 
@@ -75,7 +75,7 @@ class userController extends BaseController
         if(Auth::attempt(['username' => $req['username'], 'password' => $req['password']])){
             return redirect('/');
         }
-        return back()->with('fail', 'Login Failed');;
+        return back()->with('fail', 'Login Failed');
     }
 
     public function logout () {
