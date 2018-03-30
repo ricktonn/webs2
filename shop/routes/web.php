@@ -56,9 +56,9 @@ Route::get('product/{product?}', function () {
     return view('product', ['name' => 'product']);
 });
 
-Route::get('/product/{product?}', [
+Route::get('/showproduct/{product?}', [
     "uses" => 'ProductController@show',
-    "as" => 'product'
+    "as" => 'showproduct'
 ]);
 
 Route::get('addToCart/{id}', [
@@ -101,4 +101,9 @@ Route::get('adres', [
 Route::get('succes', [
     "uses" => 'OrderController@succes',
     "as" => 'goSucces'
+]);
+
+Route::get('orderDestroy/{id}/{var}', [
+    "uses" => 'OrderController@destroy',
+    "as" => 'orderDestroy'
 ]);

@@ -7,15 +7,9 @@ use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Session;
-use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
-
-//    public function index()
-//    {
-//        return view();
-//    }
 
     public function create(){
         return view(products.create);
@@ -23,28 +17,17 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-
-        $this->validate(request(), [
+        $product = $this->validate(request(), [
             'id' => '',
             'name' => 'required',
             'desc' => 'required',
-            'img' => 'required|image',
+            'img' => 'required',
             'price' => 'required|numeric',
             'category' => 'required',
             'seo' => 'required'
         ]);
 
-        $imageName = request()->img->getClientOriginalName();
-        request()->img->move(public_path('images'), $imageName);
-
-        $product = new Product();
-        $product->name = $request->input('name');
-        $product->desc = $request->input('desc');
-        $product->img = request()->img->getClientOriginalName();
-        $product->price = $request->input('price');
-        $product->category = $request->input('category');
-        $product->seo = $request->input('seo');
-        $product->save();
+        Product::create($product);
 
         return back()->with('success', 'Product has been added');
     }
@@ -56,9 +39,11 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->delete();
-        return back()->with('success','Product has been  deleted');
+        if(Auth::user()->user_type != "0") {
+            $product = Product::find($id);
+            $product->delete();
+            return redirect('products')->with('success', 'Product has been  deleted');
+        }
     }
 
     public function getProducts(){

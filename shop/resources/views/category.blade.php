@@ -16,7 +16,7 @@
         @foreach($chunk as $product)
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
-                    <a style="text-decoration:none; color: inherit;" href="{{ url('product', $product) }}">
+                    <a style="text-decoration:none; color: inherit;" href="{{ url('showproduct', $product) }}">
                         <img class="card-img-top" src="{{asset('/images/'.$product['img'])}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{$product['title']}}</h5>

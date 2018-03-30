@@ -114,4 +114,17 @@ class OrderController extends Controller
             return redirect('login')->with('warning','Please login before buying products :D');
         }
     }
+
+    public function destroy($id, $var)
+    {
+        if(Auth::user()->user_type != "0") {
+            $order = Order::find($id);
+            $adres = Adres::find($var);
+            $lines = Orderline::find($id);
+            $order->delete();
+            $adres->delete();
+            $lines->delete();
+            return redirect('products')->with('success', 'Order has been  deleted');
+        }
+    }
 }

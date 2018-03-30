@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
@@ -19,10 +20,10 @@ class userController extends BaseController
         {
             return redirect('/');
         }
+        $orders = Order::all()->toArray();
         $products = Product::all()->toArray();
-        return view('/admin', compact('products'));
+        return view('/admin', compact('products'), compact('orders'));
     }
-
     function page()
     {
         if (Auth::check())
