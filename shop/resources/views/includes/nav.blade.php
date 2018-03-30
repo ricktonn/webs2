@@ -12,8 +12,17 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="{{ route('category', 'startersets') }}">Starter sets</a>
-                    <a class="dropdown-item" href="{{ route('category', 'liquid') }}">E-liquids</a>
+                    @foreach(App\Category::with('subcategories')->where('p_id',0)->get() as $category)
+                        @if($category->subcategories()->count()>0)
+                            <a class="dropdown-item" href="{{ url('category')}}/{{$category->name}}"><b>{{$category->name}}</b></a>
+                            @foreach($category->subcategories as $subcategory)
+                                <a class="dropdown-item shifted" href="#">-{{$subcategory->name}}</a>
+                                @endforeach
+                            @else
+                            <a class="dropdown-item" href="{{ url('category')}}/{{$category->name}}"><b>{{$category->name}}</b></a>
+                            @endif
+                        
+                    @endforeach
                 </div>
             </li>
 

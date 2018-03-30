@@ -44,5 +44,13 @@ class ProductTableSeeder extends Seeder
             'img' => 'vape3.jpg',
             'seo' => str_random(10),
         ]);
+        DB::table('products')->insert([
+            'name' => 'vape4',
+            'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
+            'price' => '200',
+            'category' => 'liquids',
+            'img' => 'liquid1.jpg',
+            'seo' => str_random(10),
+        ]);
     }
 }

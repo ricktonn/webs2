@@ -19,7 +19,7 @@
                     <a style="text-decoration:none; color: inherit;" href="{{ url('product', $product) }}">
                         <img class="card-img-top" src="{{asset('/images/'.$product['img'])}}" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">{{$product['title']}}</h5>
+                            <h5 class="card-title">{{$product['name']}}</h5>
                             <p class="card-text">{{$product['desc']}}</p>
                             <span class="card-price-text">Price: ${{$product['price']}},00</span>
                         </div>

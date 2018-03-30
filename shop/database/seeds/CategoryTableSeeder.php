@@ -13,12 +13,34 @@ class CategoryTableSeeder extends Seeder
     {
         DB::table('category')->insert([
 
-            'name' => 'E-liquids'
+            'name' => 'liquids',
+            'p_id' => '0'
         ]);
 
         DB::table('category')->insert([
 
-            'name' => 'Startersets'
+            'name' => 'Startersets',
+            'p_id' => '0'
+        ]);
+        DB::table('category')->insert([
+
+            'name' => 'vaporesso',
+            'p_id' => '2'
+        ]);
+        DB::table('category')->insert([
+
+            'name' => 'smok',
+            'p_id' => '2'
+        ]);
+        DB::table('category')->insert([
+
+            'name' => '2mg',
+            'p_id' => '1'
+        ]);
+        DB::table('category')->insert([
+
+            'name' => '6mg',
+            'p_id' => '1'
         ]);
 
     }

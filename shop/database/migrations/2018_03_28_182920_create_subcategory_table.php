@@ -13,14 +13,14 @@ class CreateSubcategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('subcategory', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->integer('category_id')->unsigned();
-            $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories');
-        });
+//        Schema::create('subcategory', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->string('name');
+//            $table->integer('category_id')->unsigned();
+//            $table->timestamps();
+//
+//            $table->foreign('category_id')->references('id')->on('categories');
+//        });
     }
 
     /**
