@@ -17,17 +17,27 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = $this->validate(request(), [
+        $this->validate(request(), [
             'id' => '',
             'name' => 'required',
             'desc' => 'required',
-            'img' => 'required',
+            'img' => 'required|image',
             'price' => 'required|numeric',
             'category' => 'required',
             'seo' => 'required'
         ]);
 
-        Product::create($product);
+        $imageName = request()->img->getClientOriginalName();
+        request()->img->move(public_path('images'), $imageName);
+
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->desc = $request->input('desc');
+        $product->img = request()->img->getClientOriginalName();
+        $product->price = $request->input('price');
+        $product->category = $request->input('category');
+        $product->seo = $request->input('seo');
+        $product->save();
 
         return back()->with('success', 'Product has been added');
     }
@@ -42,7 +52,7 @@ class ProductController extends Controller
         if(Auth::user()->user_type != "0") {
             $product = Product::find($id);
             $product->delete();
-            return redirect('products')->with('success', 'Product has been  deleted');
+            return back()->with('success', 'Product has been  deleted');
         }
     }
 
