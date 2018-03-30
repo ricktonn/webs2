@@ -11,7 +11,7 @@
                 <a href="#product" class="nav-link active" data-toggle="tab" role="tab" aria-controls="product">Producten beheren</a>
             </li>
             <li class="nav-item">
-                <a href="#user" class="nav-link" data-toggle="tab" role="tab" aria-controls="user">Gebruikers beheren</a>
+                <a href="#user" class="nav-link" data-toggle="tab" role="tab" aria-controls="user">Categorieën beheren</a>
             </li>
             <li class="nav-item">
                 <a href="#meme" class="nav-link" data-toggle="tab" role="tab" aria-controls="meme">Meme page</a>
@@ -40,7 +40,7 @@
                         <p>{{ \Session::get('success') }}</p>
                     </div><br />
                 @endif
-                <form method="post" action="{{ url('products') }}">
+                <form method="post" action="{{ url('products') }}" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="name">Product naam</label>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="img">Image name</label>
-                        <input type="text" name="img" class="form-control">
+                        <input type="file" name="img" id="img" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
@@ -112,7 +112,7 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="user" role="tabpanel">
-                <h1>jou</h1>
+                <h1>hiero</h1>
             </div>
             <div class="tab-pane fade" id="meme" role="tabpanel">
                 <h1>kut</h1>

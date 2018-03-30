@@ -11,12 +11,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\product;
+use App\Category;
 
 class CategoryController
 {
     public function show($category)
     {
 
+//        $categories = Category::all();
 
         $data['category'] = $category;
         $products = Product::where('category','=',$data)->get();
