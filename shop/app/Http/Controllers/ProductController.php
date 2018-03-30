@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Session;
-use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -23,7 +22,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate(request(), [
             'id' => '',
             'name' => 'required',

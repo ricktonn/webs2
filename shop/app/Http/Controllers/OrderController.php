@@ -8,12 +8,11 @@ use Session;
 use App\Order;
 use App\Orderline;
 use App\Adres;
-use App\Cart;
 
 class OrderController extends Controller
 {
 
-    function insertAdres(Request $req)
+    public function insertAdres(Request $req)
     {
         if (Auth::check() && Session::has('cart')) {
             $adres = $this->validate($req, [
@@ -61,7 +60,7 @@ class OrderController extends Controller
         }
     }
 
-    function succes()
+    public function succes()
     {
         if (Auth::check() && Session::has('cart') && Session::has('adres')) {
 
@@ -106,12 +105,21 @@ class OrderController extends Controller
             return redirect('login')->with('warning','Please login before buying products :D');
         }
     }
-    function adres()
+    public function adres()
     {
         if (Auth::check() && Session::has('cart')) {
             return view('/adres');
         } else {
             return redirect('login')->with('warning','Please login before buying products :D');
         }
+    }
+
+    public function destroy(Request $request, $orderline_id, $adres_id)
+    {
+        Order::where('orderline_id','=', $orderline_id)->delete();
+        Adres::where('adres_id','=', $adres_id)->delete();
+        Orderline::where('orderline_id','=', $orderline_id)->delete();
+
+        return back()->with('success','Product has been  deleted');
     }
 }

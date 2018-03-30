@@ -11,7 +11,7 @@
                 <a href="#product" class="nav-link active" data-toggle="tab" role="tab" aria-controls="product">Producten beheren</a>
             </li>
             <li class="nav-item">
-                <a href="#user" class="nav-link" data-toggle="tab" role="tab" aria-controls="user">Categorieën beheren</a>
+                <a href="#user" class="nav-link" data-toggle="tab" role="tab" aria-controls="user">Orders beheren</a>
             </li>
             <li class="nav-item">
                 <a href="#meme" class="nav-link" data-toggle="tab" role="tab" aria-controls="meme">Meme page</a>
@@ -37,7 +37,7 @@
                 @endif
                 @if (\Session::has('success'))
                     <div class="alert alert-success">
-                        <p>{{ \Session::get('success') }}</p>
+                        {{ \Session::get('success') }}
                     </div><br />
                 @endif
                 <form method="post" action="{{ url('products') }}" enctype="multipart/form-data">
@@ -112,7 +112,31 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="user" role="tabpanel">
-                <h1>hiero</h1>
+                <h1>Orders</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Adres</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($orders as $order)
+                        <tr>
+                            <td>{{$order['orderline_id']}}</td>
+                            <td>{{$order['adres_id']}}</td>
+                            <td>${{$order['totalprice']}}</td>
+                            <td>
+                                <a href="{{ route('orderDestroy', ['orderline_id' => $order['orderline_id'], 'adres_id' => $order['adres_id']]) }}" class="btn btn-danger">
+                                    <span >Delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane fade" id="meme" role="tabpanel">
                 <h1>kut</h1>

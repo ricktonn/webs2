@@ -51,7 +51,6 @@ Route::get('category/{category?}', [
 
 Route::resource('products','ProductController');
 
-
 Route::get('product/{product?}', function () {
     return view('product', ['name' => 'product']);
 });
@@ -101,4 +100,9 @@ Route::get('adres', [
 Route::get('succes', [
     "uses" => 'OrderController@succes',
     "as" => 'goSucces'
+]);
+
+Route::get('orderDestroy/{id}/{id2}', [
+    "uses" => 'OrderController@destroy',
+    "as" => 'orderDestroy'
 ]);

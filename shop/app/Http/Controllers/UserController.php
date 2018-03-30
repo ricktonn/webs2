@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
@@ -20,7 +21,8 @@ class userController extends BaseController
             return redirect('/');
         }
         $products = Product::all()->toArray();
-        return view('/admin', compact('products'));
+        $orders = Order::all()->toArray();
+        return view('/admin', compact('products'), compact('orders'));
     }
 
     function page()
