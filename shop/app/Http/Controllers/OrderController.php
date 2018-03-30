@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use App\Order;
+use App\Orderline;
 use App\Adres;
+use App\Cart;
 
 class OrderController extends Controller
 {
@@ -60,7 +63,48 @@ class OrderController extends Controller
 
     function succes()
     {
-        return view('succes', ['ID' => '68AKTI589HA8']);
+        if (Auth::check() && Session::has('cart') && Session::has('adres')) {
+
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $randstring = '';
+            for ($i = 0; $i < 10; $i++) {
+                $randstring = $randstring . $characters[rand(0, strlen($characters) - 1)];
+            }
+            $order_id = $randstring;
+
+            $adresData = Session::get('adres');
+            $cart = Session::get('cart');
+
+            foreach($cart->items as $item)
+            {
+                $line = new Orderline();
+                $line->orderline_id = $order_id;
+                $line->product_id = $item['id'];
+                $line->amount = $item['count'];
+                $line->save();
+            }
+            $adres = new Adres();
+            $adres->firstname = $adresData['firstname'];
+            $adres->lastname = $adresData['lastname'];
+            $adres->phonenumber = $adresData['phonenumber'];
+            $adres->street = $adresData['street'];
+            $adres->housenumber = $adresData['housenumber'];
+            $adres->zipcode = $adresData['zipcode'];
+            $adres->statecity = $adresData['statecity'];
+            $adres->save();
+
+            $order = new Order();
+            $order->orderline_id = $order_id;
+            $order->adres_id = $adres->id;
+            $order->totalprice = $cart->priceTotal;
+            $order->save();
+            Session::flush('cart');
+            Session::flush('adres');
+
+            return view('succes', ['ID' => $order_id]);
+        } else {
+            return redirect('login')->with('warning','Please login before buying products :D');
+        }
     }
     function adres()
     {

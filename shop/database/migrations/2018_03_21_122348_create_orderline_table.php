@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBestellingTable extends Migration
+class CreateOrderlineTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,14 +15,14 @@ class CreateBestellingTable extends Migration
 
     public function up()
     {
-        Schema::create('bestelling', function (Blueprint $table) {
-            $table->integer('bestelling_id');
+        Schema::create('orderline', function (Blueprint $table) {
+            $table->string('orderline_id');
             $table->integer('product_id');
             $table->integer('amount');
 
             $table->timestamps();
 
-            $table->primary(['bestelling_id', 'product_id']);
+            $table->primary(['orderline_id', 'product_id']);
         });
     }
 
@@ -33,6 +33,6 @@ class CreateBestellingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bestelling');
+        Schema::dropIfExists('orderline');
     }
 }

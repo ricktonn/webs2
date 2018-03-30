@@ -16,13 +16,13 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-            $table->integer('bestelling_id');
+            $table->string('orderline_id');
             $table->integer('adres_id');
-            $table->integer('totaalprijs');
+            $table->integer('totalprice');
 
             $table->timestamps();
 
-            $table->primary(['bestelling_id', 'adres_id']);
+            $table->primary(['orderline_id', 'adres_id']);
         });
     }
     /**

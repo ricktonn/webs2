@@ -22,7 +22,7 @@ class Cart
     // check if product already exists in cart
     // if it does ++amount
     public function add($item, $id){
-        $addItem = ['count' => 0, 'price' => $item->price, 'item' => $item];
+        $addItem = ['count' => 0, 'price' => $item->price, 'item' => $item, 'id' => $id];
         if(!empty($this->items[$id])) {
             if (array_key_exists($id, $this->items)){
                 $addItem = $this->items[$id];
