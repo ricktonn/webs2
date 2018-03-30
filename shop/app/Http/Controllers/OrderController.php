@@ -98,8 +98,8 @@ class OrderController extends Controller
             $order->adres_id = $adres->id;
             $order->totalprice = $cart->priceTotal;
             $order->save();
-            Session::forget('cart');
-            Session::forget('adres');
+            Session::flush('cart');
+            Session::flush('adres');
 
             return view('succes', ['ID' => $order_id]);
         } else {
