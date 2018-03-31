@@ -16,7 +16,7 @@ class ProductTableSeeder extends Seeder
             'name' => 'vape1',
             'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
-            'category' => 'startersets',
+            'category' => '3',
             'img' => 'vape.jpg',
             'seo' => str_random(10),
         ]);
@@ -24,7 +24,7 @@ class ProductTableSeeder extends Seeder
             'name' => 'vape2',
             'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
-            'category' => 'startersets',
+            'category' => '3',
             'img' => 'vape1.jpg',
             'seo' => str_random(10),
         ]);
@@ -32,7 +32,7 @@ class ProductTableSeeder extends Seeder
             'name' => 'vape3',
             'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
-            'category' => 'startersets',
+            'category' => '3',
             'img' => 'vape2.png',
             'seo' => str_random(10),
         ]);
@@ -40,7 +40,7 @@ class ProductTableSeeder extends Seeder
             'name' => 'vape4',
             'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
-            'category' => 'startersets',
+            'category' => '4',
             'img' => 'vape3.jpg',
             'seo' => str_random(10),
         ]);
@@ -48,7 +48,7 @@ class ProductTableSeeder extends Seeder
             'name' => 'vape4',
             'desc' => 'Dit is een stuk tekst Dit is een stuk tekst Dit is een stuk tekst',
             'price' => '200',
-            'category' => 'liquids',
+            'category' => '5',
             'img' => 'liquid1.jpg',
             'seo' => str_random(10),
         ]);
