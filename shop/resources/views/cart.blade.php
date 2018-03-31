@@ -8,7 +8,12 @@
                 <ul class="list-group">
                     @foreach($products as $product)
                         <li class="list-group-item">
+                            <div class="row">
+                            <div class="col">
                             <img class="cart-img" src="{{asset('/images/'.$product['item']['img'])}}" />
+                                <string>{{ $product['item']['name'] }}</string>
+                            </div>
+                            <div class="col-auto">
                             <span  class="input-group-btn ">
                                 <a href="{{ route('cartReduce', ['id' => $product['item']['id']]) }}" class="btn btn-danger btn-number">
                                     <span>-</span>
@@ -20,11 +25,12 @@
                                     <span>+</span>
                                 </a>
                             </span>
-                            <string>{{ $product['item']['name'] }}</string>
                             <span class="label-success">${{$product['price']}}</span>
                             <a href="{{ route('cartRemove', ['id' => $product['item']['id']]) }}" class="btn btn-warning">
                                 <span >remove</span>
                             </a>
+                            </div>
+                            </div>
                         </li>
                         @endforeach
                 </ul>
@@ -40,7 +46,7 @@
         </a>
     @else
         <div class="alert alert-warning">
-            <strong>Warning! </strong>No items found!
+            No items found!
         </div><br />
 @endif
 @endsection()
