@@ -22,7 +22,6 @@ class userController extends BaseController
             return redirect('/');
         }
         $products = Product::all()->toArray();
-        $orders = Order::all()->toArray();
         $categories = Category::with('subcategories')->where('p_id',0)->get();
         $subCategories = Category::with('subcategories')->where('p_id','!=',0)->get();
         $orders = DB::table('order')->join('adres', 'order.adres_id', '=', 'adres.adres_id')->get()->toArray();

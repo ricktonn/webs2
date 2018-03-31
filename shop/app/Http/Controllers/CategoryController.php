@@ -17,9 +17,7 @@ class CategoryController extends Controller
 {
     public function show($category)
     {
-
 //        $categories = Category::all();
-
         $data['category'] = $category;
         $products = Product::where('category','=',$data)->get();
         return view('/category', $data)->with(compact('products'));
@@ -63,5 +61,14 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return back()->with('success','Category has been  deleted');
+    }
+
+    public function productSearch(Request $request)
+    {
+        $s = $request->input('s');
+        $data['category'] = 'Search';
+        $products = Product::latest()
+            ->search($s)->get();
+        return view('/category', $data)->with(compact('products'));
     }
 }

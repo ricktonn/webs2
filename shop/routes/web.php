@@ -112,3 +112,8 @@ Route::post('categoryCreate', [
     "as" => 'createCategory'
 ]);
 Route::resource('categories','CategoryController');
+
+Route::get('search/', [
+    "uses" => 'CategoryController@productSearch',
+    "as" => 'productSearch'
+]);

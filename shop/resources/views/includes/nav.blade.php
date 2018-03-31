@@ -28,6 +28,14 @@
 
         </ul>
         <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <form action="{{ route('productSearch') }}" method="get" class="form-inline">
+                    <div>
+                        <input type="text" class="form-control" name="s" placeholder="Search">
+                    </div>
+                        <button class="btn btn-success" style="margin-left: 10px" type="submit">Search</button>
+                </form>
+            </li>
             @if(Auth::check() && Auth::user()->user_type == "0")
             <li class="nav-item"><a href="{{ url('/admin') }}" class="nav-link">Admin panel</a></li>
 
