@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h2>Register</h2>
-
+    <?php  ?>
         <form action="{{ route('register') }}" method="post">
                 {{ csrf_field() }}
             <div class="form-group">

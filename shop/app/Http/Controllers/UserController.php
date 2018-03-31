@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Product;
 use App\Category;
 use App\User;
@@ -10,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class userController extends BaseController
@@ -27,6 +27,7 @@ class userController extends BaseController
         $subCategories = Category::with('subcategories')->where('p_id','!=',0)->get();
 
         return view('/admin', compact('products'), compact('orders'))->with(compact('categories'))->with(compact('subCategories'));
+        $orders = DB::table('order')->join('adres', 'order.adres_id', '=', 'adres.adres_id')->get()->toArray();
     }
 
     function page()

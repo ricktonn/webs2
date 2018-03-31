@@ -14,4 +14,5 @@ use Illuminate\Database\Eloquent\Model;
 class Adres extends Model
 {
     protected $fillable = ['adres_id','firstname','lastname', 'phonenumber', ' 	housenumber ', 'zipcode', 'statecity ', 'created_at', 'updated_at'];
+
 }
