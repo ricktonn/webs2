@@ -132,4 +132,11 @@ class ProductController extends Controller
             return view('cart', ['products' => $cart->items, 'price' => $cart->priceTotal]);
         }
     }
+
+    public function showHome()
+    {
+        $products = Product::orderBy('id','desc')->take(3)->get();
+
+        return view('/home', compact('products'));
+    }
 }

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [
+    "uses" => 'ProductController@showHome',
+    "as" => '/'
+]);
 
 Route::get('register', function () {
     return view('register');
