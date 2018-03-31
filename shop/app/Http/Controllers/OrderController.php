@@ -120,6 +120,6 @@ class OrderController extends Controller
         Adres::where('adres_id','=', $adres_id)->delete();
         Orderline::where('orderline_id','=', $orderline_id)->delete();
 
-        return back()->with('success','Product has been  deleted');
+        return back()->with('success','Order has been  deleted');
     }
 }

@@ -81,4 +81,13 @@ class CategoryController extends Controller
         Category::where('p_id','=', $id)->delete();
         return back()->with('success','Category has been  deleted');
     }
+
+    public function productSearch(Request $request)
+    {
+        $s = $request->input('s');
+        $data['category'] = 'Search';
+        $products = Product::latest()
+            ->search($s)->get();
+        return view('/category', $data)->with(compact('products'));
+    }
 }

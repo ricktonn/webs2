@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [
+    "uses" => 'ProductController@showHome',
+    "as" => '/'
+]);
 
 Route::get('register', function () {
     return view('register');
@@ -112,3 +113,8 @@ Route::post('categoryCreate', [
     "as" => 'createCategory'
 ]);
 Route::resource('categories','CategoryController');
+
+Route::get('search/', [
+    "uses" => 'CategoryController@productSearch',
+    "as" => 'productSearch'
+]);

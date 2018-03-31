@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container">
     <a class="navbar-brand" href="{{ url('/') }}">De dampende boykes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,7 +49,14 @@
                     <a class="nav-link" href="{{ url('register') }}">register</a>
                 </li>
             @endif
+                <li class="nav-item">
+                    <form action="{{ route('productSearch') }}" method="get" class="form-inline">
+                        <div>
+                            <input type="text" class="form-control" name="s" placeholder="Search">
+                        </div>
+                        <button class="btn btn-outline-success" style="margin-left: 10px" type="submit">Search</button>
+                    </form>
+                </li>
         </ul>
-    </div>
     </div>
 </nav>
