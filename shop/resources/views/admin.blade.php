@@ -14,7 +14,7 @@
                 <a href="#user" class="nav-link" data-toggle="tab" role="tab" aria-controls="user">Orders beheren</a>
             </li>
             <li class="nav-item">
-                <a href="#meme" class="nav-link" data-toggle="tab" role="tab" aria-controls="meme">Meme page</a>
+                <a href="#meme" class="nav-link" data-toggle="tab" role="tab" aria-controls="meme">Categorieën beheren</a>
             </li>
             <li class="nav-item">
                 <a href="#sit-amet" class="nav-link" data-toggle="tab" role="tab" aria-controls="sit-amet">Swag</a>
@@ -139,7 +139,103 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="meme" role="tabpanel">
-                <h1>kut</h1>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                @endif
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ \Session::get('success') }}
+                    </div><br />
+                @endif
+                <h1>Categorie aanmaken</h1>
+
+                <form method="post" action="{{action('CategoryController@addCategory')}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <label for="name">Categorie naam</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add Category</button>
+                    </div>
+                </form>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $category)
+                            <tr>
+                                <td>{{$category['id']}}</td>
+                                <td>{{$category['name']}}</td>
+                                <td>
+                                    <form action="{{action('CategoryController@destroy', $category['id'])}}" method="post">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                <hr style="margin: 3rem 0; background-color: transparent;">
+
+
+                <h1>Sub-categorie aanmaken</h1>
+                <form method="post" action="{{action('CategoryController@addCategory')}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <label for="name">categorie naam</label>
+                        <select name="category" id="category" class="form-control">
+                            @foreach($categories as $category)
+                            <option value="{{$category['id']}}">{{$category['name']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Sub-categorie naam</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add Sub-category</button>
+                    </div>
+                </form>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Parent id</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($subCategories as $subCategory)
+                            <tr>
+                                <td>{{$subCategory['id']}}</td>
+                                <td>{{$subCategory['name']}}</td>
+                                <td>{{$subCategory['p_id']}}</td>
+                                <td>
+                                    <form action="{{action('CategoryController@destroy', $subCategory['id'])}}" method="post">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
             </div>
             <div class="tab-pane fade" id="sit-amet" role="tabpanel">
                 <h1>rick</h1>

@@ -10068,16 +10068,3 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.badge {
-  height: 18px;
-  width: 18px;
-  background-color: #e2e2e2;
-  border-radius: 50%;
-  color: #636363;
-  text-align: center;
-}
-
-.cart-img{
-  height: 50px;
-  width: 50px;
-}

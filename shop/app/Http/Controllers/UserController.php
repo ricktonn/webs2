@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Product;
+use App\Category;
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
@@ -22,7 +23,10 @@ class userController extends BaseController
         }
         $products = Product::all()->toArray();
         $orders = Order::all()->toArray();
-        return view('/admin', compact('products'), compact('orders'));
+        $categories = Category::with('subcategories')->where('p_id',0)->get();
+        $subCategories = Category::with('subcategories')->where('p_id','!=',0)->get();
+
+        return view('/admin', compact('products'), compact('orders'))->with(compact('categories'))->with(compact('subCategories'));
     }
 
     function page()

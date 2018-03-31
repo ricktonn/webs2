@@ -106,3 +106,9 @@ Route::get('orderDestroy/{id}/{id2}', [
     "uses" => 'OrderController@destroy',
     "as" => 'orderDestroy'
 ]);
+
+Route::post('categoryCreate', [
+    "uses" => 'CategoryController@addCategory',
+    "as" => 'createCategory'
+]);
+Route::resource('categories','CategoryController');
