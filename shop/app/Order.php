@@ -15,5 +15,6 @@ class Order extends Model
 {
     protected $table = "order";
     protected $fillable = ['orderline_id','adres_id','totalprice', 'created_at', 'updated_at'];
-
+    public $zipcode;
+    public $phonenumber;
 }

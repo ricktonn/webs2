@@ -117,19 +117,25 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Adres</th>
+                        <th>Name</th>
+                        <th>Phonenumber</th>
+                        <th>zipcode</th>
                         <th>Total Price</th>
+                        <th>Order Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
                         <tr>
-                            <td>{{$order['orderline_id']}}</td>
-                            <td>{{$order['adres_id']}}</td>
-                            <td>${{$order['totalprice']}}</td>
+                            <td>{{$order->orderline_id}}</td>
+                            <td>{{$order->firstname}} {{$order->lastname}}</td>
+                            <td>{{$order->phonenumber}}</td>
+                            <td>{{$order->zipcode}}</td>
+                            <td>${{$order->totalprice}}</td>
+                            <td>{{$order->created_at}}</td>
                             <td>
-                                <a href="{{ route('orderDestroy', ['orderline_id' => $order['orderline_id'], 'adres_id' => $order['adres_id']]) }}" class="btn btn-danger">
+                                <a href="{{ route('orderDestroy', ['orderline_id' => $order->orderline_id, 'adres_id' => $order->adres_id]) }}" class="btn btn-danger">
                                     <span >Delete</span>
                                 </a>
                             </td>

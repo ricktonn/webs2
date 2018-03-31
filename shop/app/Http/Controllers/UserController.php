@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class userController extends BaseController
@@ -21,7 +21,9 @@ class userController extends BaseController
             return redirect('/');
         }
         $products = Product::all()->toArray();
-        $orders = Order::all()->toArray();
+        $orders = DB::table('order')->join('adres', 'order.adres_id', '=', 'adres.adres_id')->get()->toArray();
+
+
         return view('/admin', compact('products'), compact('orders'));
     }
 
