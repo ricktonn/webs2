@@ -4,16 +4,9 @@
 
 
     <h1>{{$category or 'No name'}}</h1>
-    {{--@foreach($categories as $test)--}}
-        {{--<h2>{{$test['name']}}</h2>--}}
-        {{--@foreach($test->subCategories as $subCategory)--}}
-            {{--<h2>{{$subCategory['name']}}</h2>--}}
-        {{--@endforeach--}}
-    {{--@endforeach--}}
-
-    @foreach($products->chunk(3) as $chunk)
     <div class="row" style="margin-bottom: 2rem;">
-        @foreach($chunk as $product)
+    @foreach($products as $product)
+
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
                     <a style="text-decoration:none; color: inherit;" href="{{ url('product', $product) }}">
@@ -26,9 +19,8 @@
                     </a>
                 </div>
             </div>
-        @endforeach
-    </div>
-    @endforeach
 
+    @endforeach
+    </div>
 
 @endsection()

@@ -61,10 +61,19 @@
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select name="category" id="category" class="form-control">
-                            <option value="startersets">Starter sets</option>
-                            <option value="liquid">E-liquid</option>
+                                @foreach($categories as $category)
+                                    @if($category->subcategories()->count()>0)
+                                        <option class="optionText" class="" disabled><strong>{{$category['name']}}</strong></option>
+                                        @foreach($category->subcategories as $subcategory)
+                                            <option value="{{$subcategory['id']}}">- {{$subcategory['name']}}</option>
+                                        @endforeach
+                                    @else
+                                        <option class="optionText" disabled><strong>{{$category['name']}}</strong></option>
+                                    @endif
+                                @endforeach
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="seo">SEO</label>
                         <input type="text" name="seo" class="form-control">
@@ -176,7 +185,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th></th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -223,6 +232,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Parent id</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>

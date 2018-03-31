@@ -16,7 +16,7 @@
                         @if($category->subcategories()->count()>0)
                             <a class="dropdown-item" href="{{ url('category')}}/{{$category->name}}"><b>{{$category->name}}</b></a>
                             @foreach($category->subcategories as $subcategory)
-                                <a class="dropdown-item shifted" href="#">-{{$subcategory->name}}</a>
+                                <a class="dropdown-item shifted" href="{{ url('category')}}/{{$subcategory->name}}">-{{$subcategory->name}}</a>
                                 @endforeach
                             @else
                             <a class="dropdown-item" href="{{ url('category')}}/{{$category->name}}"><b>{{$category->name}}</b></a>
