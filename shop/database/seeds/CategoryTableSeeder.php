@@ -34,12 +34,12 @@ class CategoryTableSeeder extends Seeder
         ]);
         DB::table('category')->insert([
 
-            'name' => '2mg',
+            'name' => 'Humble',
             'p_id' => '1'
         ]);
         DB::table('category')->insert([
 
-            'name' => '6mg',
+            'name' => 'CandyKing',
             'p_id' => '1'
         ]);
 
