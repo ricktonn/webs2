@@ -10,15 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 </head>
 <body>
-{{--<section id="header" class="header">--}}
-    {{--<div class="header-wrapper">--}}
-        {{--<div class="container">--}}
-            {{--<div class="row">--}}
-                {{--@include('includes.navbar')--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</section>--}}
+
 @include('includes.nav')
 
 <div class="content-wrapper">
